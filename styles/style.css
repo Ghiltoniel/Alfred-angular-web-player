@@ -1,0 +1,13 @@
+.global-error{
+	position:absolute;
+	z-index:100;
+	padding:15px;
+	right: 28px;
+    top: 10px;
+    background-color: red;
+    color: white;
+}
+
+.error{
+	color:red;
+}

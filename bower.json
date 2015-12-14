@@ -1,0 +1,29 @@
+{
+  "name": "Alfred-admin",
+  "authors": [
+    "Guillaume Jacquart <guillaume.jacquart@live.fr>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-mocks": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-animate": "~1.4.8",
+    "alfred-angular": "Alfred-angular-module#*",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
+    "bootstrap-switch": "~3.3.2"
+  }
+}
