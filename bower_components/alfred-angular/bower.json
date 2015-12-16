@@ -1,0 +1,23 @@
+{
+  "name": "alfred-angular",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Ghiltoniel/Alfred-angular-module",
+  "authors": [
+    "Guillaume Jacquart <guillaume.jacquart@live.fr>"
+  ],
+  "description": "Alfred angular module for Alfred Server",
+  "main": "alfred.js",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "alfred"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
