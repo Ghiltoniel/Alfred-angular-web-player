@@ -41,7 +41,7 @@ app.service('VideosService', ['$window', '$rootScope', '$log', 'alfredClient', f
 			alfredClient.Player.sendNextSongSignal();
 		}
 		
-		var status = YT.PlayerState.PLAYING ? "3" : YT.PlayerState.PAUSED ? "4" : YT.PlayerState.BUFFERING ? "2" : "0";
+		var status = event.data == YT.PlayerState.PLAYING ? "3" : event.data == YT.PlayerState.PAUSED ? "4" : event.data == YT.PlayerState.BUFFERING ? "2" : "0";
 		alfredClient.Player.sendUpdateStatusSignal(
 			status,
 			youtube.player.getDuration(), 
@@ -101,16 +101,27 @@ app.service('VideosService', ['$window', '$rootScope', '$log', 'alfredClient', f
   }
   
 	alfredClient.subscribe(function(data){
-	if (data != null
-		&& data.Arguments != null
-		&& data.Command == 'DirectPlay'
-		&& data.Type == 3
-		&& typeof(data.Arguments.file) != 'undefined') {
-			var index = data.Arguments.file.indexOf('https://www.youtube.com/watch?v=');
-			if(index == 0){
-				var id = data.Arguments.file.replace('https://www.youtube.com/watch?v=', '');
-				service.launchPlayer(id);
-			}
+		if (data != null
+			&& data.Arguments != null
+			&& data.Command == 'DirectPlay'
+			&& data.Type == 3
+			&& typeof(data.Arguments.file) != 'undefined') {
+				var index = data.Arguments.file.indexOf('https://www.youtube.com/watch?v=');
+				if(index == 0){
+					var id = data.Arguments.file.replace('https://www.youtube.com/watch?v=', '');
+					service.launchPlayer(id);
+				}
+		}
+		
+		if (data != null
+			&& data.Command == 'PlayPause') {
+				if(youtube.player.getPlayerState() == 2){
+					youtube.player.playVideo();
+				}				
+				
+				if(youtube.player.getPlayerState() == 1){
+					youtube.player.pauseVideo();
+				}
 		}
 	});
 
