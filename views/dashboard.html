@@ -4,13 +4,12 @@
       <div class="col-sm-3 col-md-2 sidebar">
 
        <div class="text-center">
-        <h2 class="brand">Alfred <small>Administration</small></h2>
+        <h2 class="brand">Alfred <small>web player</small></h2>
         <a ng-click="logout()" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
       </div>
 
       <ul class="nav nav-sidebar">
-        <li ng-class="{active: $state.includes('configuration')}"><a ui-sref="configuration">Paramètres</a></li>
-        <li ng-class="{active: $state.includes('lights')}"><a ui-sref="lights">Lumières</a></li>
+        <li ng-class="{active: $state.includes('player')}"><a ui-sref="player">Player</a></li>
         <li ng-class="{active: $state.includes('parameters-dashboard')}"><a ui-sref="parameters-dashboard">Server</a></li>
       </ul>
 

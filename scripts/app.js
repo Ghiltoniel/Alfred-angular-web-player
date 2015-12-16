@@ -16,7 +16,7 @@ var app = angular
   ])
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.when('/dashboard', '/dashboard/configuration');
+    $urlRouterProvider.when('/dashboard', '/dashboard/player');
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider
@@ -43,17 +43,11 @@ var app = angular
           templateUrl: 'views/dashboard.html',
           controller: 'DashboardCtrl'
         })
-          .state('configuration', {
-            url: '/configuration',
+          .state('player', {
+            url: '/player',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/configuration.html',
-			controller: 'ConfigurationCtrl'
-          })
-          .state('lights', {
-            url: '/lights',
-            parent: 'dashboard',
-            templateUrl: 'views/dashboard/lights.html',
-			controller: 'LightsCtrl'
+            templateUrl: 'views/dashboard/player.html',
+			controller: 'PlayerCtrl'
           })
           .state('parameters-dashboard', {
             url: '/parameters',
@@ -104,6 +98,13 @@ app.run(function($rootScope, $location, alfredClient, alfredAuth, alfredParams) 
 			$location.path('/parameters');
 		}
 	}
+});
+
+app.run(function () {
+	var tag = document.createElement('script');
+	tag.src = "http://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 });
 
 app.factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
